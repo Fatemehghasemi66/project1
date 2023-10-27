@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
+using System.Security.Cryptography.X509Certificates;
 
 namespace project1
 {
@@ -7,11 +8,14 @@ namespace project1
     {
         static void Main(string[] args)
         {
-            Console.BackgroundColor = ConsoleColor.Green;
+            Console.SetBufferSize(600, 600);
+            Console.Title = ".netfundamental";
+            Console.SetCursorPosition(50,3);
+            Console.BackgroundColor = ConsoleColor.Red;
             Console.ForegroundColor = ConsoleColor.Black;
 
             Console.WriteLine("wellcome to site");
-            Console.WriteLine("----------------------------------------------------------------------------");
+            Console.WriteLine("---------------------------------------------------------------------------------------------------------------------");
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.WriteLine("enter name:");
             string name = Console.ReadLine();
@@ -34,17 +38,20 @@ namespace project1
             //nead break
 
             Console.WriteLine("please enter your mobilphon:");
-            string mobilenumber= Console.ReadLine();
-          
+            string mobilenumber = Console.ReadLine();
+            string phone = mobilenumber.Substring(0,7);
+            string showphone = $"{phone}****";
+
+
             Console.BackgroundColor = ConsoleColor.Green;
             Console.ForegroundColor = ConsoleColor.Black;
             mobilenumber = mobilenumber.Trim();
-            string phone = mobilenumber.Substring(0,3);
-            string description = $"name: {name} lastname:{lastname} born at {born} contact:{phone}";
+
+            string description = $"name: {name} lastname:{lastname} born at {born} contact:{showphone}";
             Console.WriteLine(description);
 
-             
-           
+
+
 
 
 
