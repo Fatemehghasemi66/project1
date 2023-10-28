@@ -1,5 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.VisualBasic;
+using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
+using System.Net.NetworkInformation;
 using System.Security.Cryptography.X509Certificates;
 
 namespace project1
@@ -10,7 +13,7 @@ namespace project1
         {
             Console.SetBufferSize(600, 600);
             Console.Title = ".netfundamental";
-            Console.SetCursorPosition(50,3);
+            Console.SetCursorPosition(50, 3);
             Console.BackgroundColor = ConsoleColor.Red;
             Console.ForegroundColor = ConsoleColor.Black;
 
@@ -22,42 +25,48 @@ namespace project1
             Console.WriteLine("enter lastname:");
             string lastname = Console.ReadLine();
             Console.WriteLine("when you born:");
-            int born = Convert.ToInt32(Console.ReadLine());
-            if (born <= 1360)
+            string bornstr = Console.ReadLine();
+            int born = int.Parse(bornstr);
+            if (born <= 1360) //  age limited
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("you cant contnue");
+                return;
             }
 
+            bool Isenteredvalidmobilenumber = false;
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("please enter your mobilnumber:");
+                string mobilenumber = Console.ReadLine();
+                mobilenumber = mobilenumber.Trim();
+                if (!string.IsNullOrEmpty(mobilenumber) && mobilenumber.Length == 11)
+
+                {
+                    string submobilenumber = mobilenumber.Substring(0, 1);
+                    if (submobilenumber == "09")
+                    {
+                        Isenteredvalidmobilenumber = true;
+                        break;
+
+                    }
+                        
+                }
+
+            }
+            if (Isenteredvalidmobilenumber)
+            {
+                Console.WriteLine("you finished your Registration");
+                string description = $"name: {name} lastname:{lastname} born at {born} mobilenumber:09*****"; //how use dynamic mobilenumber hear?????
+                Console.WriteLine(description);
+            }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("sucsese");
+                Console.WriteLine("Invalide number");
             }
-
-            //nead break
-
-            Console.WriteLine("please enter your mobilphon:");
-            string mobilenumber = Console.ReadLine();
-            string phone = mobilenumber.Substring(0,7);
-            string showphone = $"{phone}****";
-
-
-            Console.BackgroundColor = ConsoleColor.Green;
-            Console.ForegroundColor = ConsoleColor.Black;
-            mobilenumber = mobilenumber.Trim();
-
-            string description = $"name: {name} lastname:{lastname} born at {born} contact:{showphone}";
-            Console.WriteLine(description);
-
-
-
-
-
-
-
 
 
         }
+
     }
 }
