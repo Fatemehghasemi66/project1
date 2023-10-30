@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
+using System.Linq.Expressions;
 using System.Net.NetworkInformation;
 using System.Security.Cryptography.X509Certificates;
 
@@ -9,59 +10,78 @@ namespace project1
 {
     internal class Program
     {
-         static int Add(int x, int y, int z)
+        static void StarDivider()
         {
-            return (x * y)+z;
+            Console.WriteLine("*******************************************************************************************************************************************************************");
+        }
+        public static int Age()
+        {
+            var year = 1400; // chetor bayad dynamic bashad!!!!!!
+            Console.WriteLine("when is you born?");
+            int born = int.Parse(Console.ReadLine());
+            if (born < 1200)
+            {
+                return 0;
+
+            }
+            return year - born;
 
         }
-         static void ShowDevider()
+        public static int MobileNumber()
         {
-            Console.WriteLine("************************************************************************************************");
+            Console.WriteLine("pleas enter yor MobileNumber");
+            string mobileNumber = Console.ReadLine();
+            if (string.IsNullOrEmpty(mobileNumber))
+            {
+                return 0;
+            }
+            return Convert.ToInt32(mobileNumber);
         }
-        static int Addnumber(int x, int y, int z)
+        public static int Username()
         {
-            return (x+z)-y;
+            Console.WriteLine("your password is:");
+            int userName = MobileNumber();
+            string userSTR = Convert.ToString(userName);
+            string username = userSTR.Substring(0, 5);
+        
+
+            return Convert.ToInt32(username);
         }
-        public static int GetnumberFromUser()
-        {
-            Console.WriteLine("pleas enter number:");
-            string numSTR = Console.ReadLine();
-            return Convert.ToInt32(numSTR);
-        }
+
         static void Main(string[] args)
         {
-            
-            int result = Add(5, 2, 3);
-            Console.WriteLine(result);
-            
-            int num1 = GetnumberFromUser();
-            int num2 = GetnumberFromUser();
-            int num3 = GetnumberFromUser();
-            int result2 = Add(num1, num2, num3);
-            Console.WriteLine(result2);
+
+            Console.SetBufferSize(600, 600);
+            Console.Title = ".netfundamental";
+            Console.SetCursorPosition(50, 3);
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Black;
+
+            Console.WriteLine("wellcome to CsharpClass");
+            StarDivider();
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.WriteLine("enter name:");
+            string name = Console.ReadLine();
+            Console.WriteLine("enter lastname:");
+            string lastname = Console.ReadLine();
+            int age = Age();
+            Console.WriteLine(age);
+            int mobile = MobileNumber();
+            Console.WriteLine(mobile);
+            int username = Username();
+            Console.WriteLine(username);
 
 
 
 
-           
-            
 
 
 
 
-            //Console.SetBufferSize(600, 600);
-            //Console.Title = ".netfundamental";
-            //Console.SetCursorPosition(40, 3);
-            //Console.BackgroundColor = ConsoleColor.Red;
-            //Console.ForegroundColor = ConsoleColor.Black;
 
-            //Console.WriteLine("wellcome to CsharpClass");
-            //ShowDevider();ShowDevider();
-            //Console.BackgroundColor = ConsoleColor.Blue;
-            //Console.WriteLine("enter name:");
-            //string name = Console.ReadLine();
-            //Console.WriteLine("enter lastname:");
-            //string lastname = Console.ReadLine();
+
+
+
             //Console.WriteLine("when you born:");
             //string bornstr = Console.ReadLine();
             //int born = int.Parse(bornstr);
@@ -71,6 +91,8 @@ namespace project1
             //    Console.WriteLine("you cant contnue");
             //    return;
             //}
+          
+
 
             //bool isenteredvalidmobilenumber = false;
             //for (int i = 0; i < 3; i++)
@@ -92,7 +114,7 @@ namespace project1
             //    }
 
             //}
-            
+
             //if (isenteredvalidmobilenumber)
             //{
             //    Console.WriteLine("you finished your Registration");
@@ -105,7 +127,7 @@ namespace project1
             //}
 
 
-        }
+        }//main
 
-    }
-}
+    }//program
+}//project1
