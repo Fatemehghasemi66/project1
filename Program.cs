@@ -35,7 +35,10 @@ namespace project1
             {
                 return 0;
             }
-            return Convert.ToInt32(mobileNumber);
+            else
+            {
+                return Convert.ToInt32(mobileNumber);
+            }
         }
         public static int Username()
         {
@@ -50,26 +53,97 @@ namespace project1
 
         static void Main(string[] args)
         {
+            int age;
+            string ageDescription = default;
+            int firstNumber;
+            int secondNumber;
+            Console.WriteLine("entr your age:");
+            age = int.Parse(Console.ReadLine());
+            if (age<=20 && age>0)
+            {
+                Console.WriteLine("nojavan");
+            }
+            else if (age>20 && age<=30) 
+            {
+                Console.WriteLine("javan");
+            }
+            else if(age>30 && age<=100)
+            {
+                Console.WriteLine("kohansal");
+            }
+            string gender;
+            Console.WriteLine("enter gender:");
+            
+             gender = Console.ReadLine();
+            
+            switch (gender)
+            {
+                case "F":
+                    Console.WriteLine("registeration");
+                    break;
+                case "M":
+                    Console.WriteLine("error");
+                    break;
 
-            Console.SetBufferSize(600, 600);
-            Console.Title = ".netfundamental";
-            Console.SetCursorPosition(50, 3);
-            Console.BackgroundColor = ConsoleColor.Red;
-            Console.ForegroundColor = ConsoleColor.Black;
+            }
 
-            Console.WriteLine("wellcome to CsharpClass");
-            StarDivider();
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.WriteLine("enter name:");
-            string name = Console.ReadLine();
-            Console.WriteLine("enter lastname:");
-            string lastname = Console.ReadLine();
-            int age = Age();
-            Console.WriteLine(age);
-            int mobile = MobileNumber();
-            Console.WriteLine(mobile);
-            int username = Username();
-            Console.WriteLine(username);
+
+
+
+
+
+            string cellphone = null;
+            while (true)
+            {
+                Console.WriteLine("please enter your valid cellphone:");
+                cellphone = Console.ReadLine();
+                Console.WriteLine(cellphone);
+                if (!string.IsNullOrEmpty(cellphone))
+                {
+                    break; 
+                }
+                
+            }
+
+            Console.WriteLine("------------------------");
+
+           
+
+
+            string[] cars = { "prid", "p206", "rana", "samand", "haima" };
+
+            foreach (var i in cars)
+            {
+                if (cars[1] == "p206")
+                {
+                    Console.WriteLine("Error");
+                }
+                Console.WriteLine(i);
+            }
+            
+
+
+
+
+            //    Console.SetBufferSize(600, 600);
+            //Console.Title = ".netfundamental";
+            //Console.SetCursorPosition(50, 3);
+            //Console.BackgroundColor = ConsoleColor.Red;
+            //Console.ForegroundColor = ConsoleColor.Black;
+
+            //Console.WriteLine("wellcome to CsharpClass");
+            //StarDivider();
+            //Console.BackgroundColor = ConsoleColor.Blue;
+            //Console.WriteLine("enter name:");
+            //string name = Console.ReadLine();
+            //Console.WriteLine("enter lastname:");
+            //string lastname = Console.ReadLine();
+            //int age = Age();
+            //Console.WriteLine(age);
+            //int mobile = MobileNumber();
+            //Console.WriteLine(mobile);
+            //int username = Username();
+            //Console.WriteLine(username);
 
 
 
@@ -91,7 +165,7 @@ namespace project1
             //    Console.WriteLine("you cant contnue");
             //    return;
             //}
-          
+
 
 
             //bool isenteredvalidmobilenumber = false;
